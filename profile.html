@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreshFeast — My Profile</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="profile.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+ <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">F</div>
+        <span class="logo-text">Fresh<span class="logo-accent">Feast</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link ">Home</a>
+        <a href="menu.html" class="nav-link">Menu</a>
+        <a href="preferences.html" class="nav-link">Preferences</a>
+        <a href="support.html" class="nav-link">Support</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="location.html"><button class="nav-icon-btn" aria-label="Location">
+          <i class="fa-solid fa-location-dot"></i>
+          </button>
+        </a>
+        <a href="profile.html"><button class="nav-icon-btn" aria-label="Account">
+          <i class="fa-regular fa-user"></i>
+        </button></a>
+        <a href="cart.html"><button class="nav-icon-btn cart-btn" aria-label="Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button></a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PROFILE LAYOUT ===== -->
+  <main class="profile-page container">
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="profile-sidebar" id="sidebar">
+
+      <!-- Avatar card -->
+      <div class="avatar-card">
+        <div class="avatar-card__cover">
+          <div class="avatar-card__cover-pattern"></div>
+        </div>
+        <div class="avatar-card__body">
+          <div class="avatar-wrap">
+            <img src="https://i.pravatar.cc/160?img=47" alt="Marcus Johnson" class="avatar-img" id="avatarImg" />
+            <label class="avatar-edit" for="avatarUpload" aria-label="Change photo">
+              <i class="fa-solid fa-camera"></i>
+            </label>
+            <input type="file" id="avatarUpload" accept="image/*" class="visually-hidden" />
+          </div>
+          <h2 class="sidebar-name">Marcus Johnson</h2>
+          <p class="sidebar-email">marcus.j@email.com</p>
+
+          <!-- Loyalty tier -->
+          <div class="loyalty-badge">
+            <i class="fa-solid fa-crown"></i>
+            <span>Gold Member</span>
+          </div>
+
+          <!-- Progress to next tier -->
+          <div class="loyalty-progress">
+            <div class="loyalty-progress__labels">
+              <span>Gold</span>
+              <span class="loyalty-progress__pts">680 / 1000 pts to Platinum</span>
+            </div>
+            <div class="loyalty-progress__bar">
+              <div class="loyalty-progress__fill" style="width: 68%"></div>
+            </div>
+          </div>
+
+          <!-- Stats row -->
+          <div class="sidebar-stats">
+            <div class="sidebar-stat">
+              <span class="sidebar-stat__val">47</span>
+              <span class="sidebar-stat__label">Orders</span>
+            </div>
+            <div class="sidebar-stat-div"></div>
+            <div class="sidebar-stat">
+              <span class="sidebar-stat__val">$684</span>
+              <span class="sidebar-stat__label">Spent</span>
+            </div>
+            <div class="sidebar-stat-div"></div>
+            <div class="sidebar-stat">
+              <span class="sidebar-stat__val">680</span>
+              <span class="sidebar-stat__label">Points</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar navigation -->
+      <nav class="sidebar-nav" aria-label="Profile sections">
+        <button class="snav-item active" data-tab="overview">
+          <i class="fa-solid fa-house-chimney"></i> Overview
+        </button>
+        <button class="snav-item" data-tab="orders">
+          <i class="fa-solid fa-bag-shopping"></i> Order History
+          <span class="snav-badge">47</span>
+        </button>
+        <button class="snav-item" data-tab="addresses">
+          <i class="fa-solid fa-location-dot"></i> Saved Addresses
+        </button>
+        <button class="snav-item" data-tab="payment">
+          <i class="fa-solid fa-credit-card"></i> Payment Methods
+        </button>
+        <button class="snav-item" data-tab="settings">
+          <i class="fa-solid fa-gear"></i> Account Settings
+        </button>
+        <div class="snav-divider"></div>
+        <button class="snav-item snav-item--danger" id="logoutBtn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+        </button>
+      </nav>
+
+    </aside>
+
+    <!-- ── MAIN PANEL ── -->
+    <section class="profile-main" id="profileMain">
+
+      <!-- ══ TAB: OVERVIEW ══ -->
+      <div class="tab-panel active" id="tab-overview">
+        <div class="panel-header">
+          <div>
+            <h1 class="panel-title">Welcome back, <span class="accent">Marcus</span> 👋</h1>
+            <p class="panel-sub">Here's what's happening with your account</p>
+          </div>
+          <a href="menu.html" class="btn btn-primary">
+            <i class="fa-solid fa-utensils"></i> Order Again
+          </a>
+        </div>
+
+        <!-- Overview stats -->
+        <div class="ov-stats">
+          <div class="ov-stat-card" data-animate>
+            <div class="ov-stat-card__icon"><i class="fa-solid fa-bag-shopping"></i></div>
+            <div class="ov-stat-card__info">
+              <span class="ov-stat-card__val">47</span>
+              <span class="ov-stat-card__label">Total Orders</span>
+            </div>
+            <div class="ov-stat-card__trend up"><i class="fa-solid fa-arrow-trend-up"></i> +3 this month</div>
+          </div>
+          <div class="ov-stat-card" data-animate style="animation-delay:.08s">
+            <div class="ov-stat-card__icon"><i class="fa-solid fa-dollar-sign"></i></div>
+            <div class="ov-stat-card__info">
+              <span class="ov-stat-card__val">$684</span>
+              <span class="ov-stat-card__label">Total Spent</span>
+            </div>
+            <div class="ov-stat-card__trend up"><i class="fa-solid fa-arrow-trend-up"></i> +$42 this month</div>
+          </div>
+          <div class="ov-stat-card" data-animate style="animation-delay:.16s">
+            <div class="ov-stat-card__icon"><i class="fa-solid fa-crown"></i></div>
+            <div class="ov-stat-card__info">
+              <span class="ov-stat-card__val">680</span>
+              <span class="ov-stat-card__label">Loyalty Points</span>
+            </div>
+            <div class="ov-stat-card__trend neutral">320 pts to Platinum</div>
+          </div>
+          <div class="ov-stat-card" data-animate style="animation-delay:.24s">
+            <div class="ov-stat-card__icon"><i class="fa-solid fa-heart"></i></div>
+            <div class="ov-stat-card__info">
+              <span class="ov-stat-card__val">8</span>
+              <span class="ov-stat-card__label">Saved Items</span>
+            </div>
+            <div class="ov-stat-card__trend neutral">View favourites</div>
+          </div>
+        </div>
+
+        <!-- Recent Orders -->
+        <div class="section-block">
+          <div class="section-block__hd">
+            <h2 class="section-block__title">Recent Orders</h2>
+            <button class="link-btn" data-goto="orders">View All <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+          <div class="recent-orders">
+
+            <div class="order-row">
+              <div class="order-row__thumb">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=80&h=80&fit=crop" alt="Classic Smash Burger" />
+              </div>
+              <div class="order-row__info">
+                <p class="order-row__name">Classic Smash Burger × 2</p>
+                <p class="order-row__date"><i class="fa-regular fa-calendar"></i> March 24, 2025 · Downtown District</p>
+              </div>
+              <div class="order-row__right">
+                <span class="status-badge status-badge--delivered">Delivered</span>
+                <span class="order-row__price">$29.98</span>
+                <button class="btn-reorder">Reorder</button>
+              </div>
+            </div>
+
+            <div class="order-row">
+              <div class="order-row__thumb">
+                <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=80&h=80&fit=crop" alt="Truffle Carbonara" />
+              </div>
+              <div class="order-row__info">
+                <p class="order-row__name">Truffle Carbonara + Garden Fresh Bowl</p>
+                <p class="order-row__date"><i class="fa-regular fa-calendar"></i> March 20, 2025 · East End Garden</p>
+              </div>
+              <div class="order-row__right">
+                <span class="status-badge status-badge--delivered">Delivered</span>
+                <span class="order-row__price">$31.98</span>
+                <button class="btn-reorder">Reorder</button>
+              </div>
+            </div>
+
+            <div class="order-row">
+              <div class="order-row__thumb">
+                <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=80&h=80&fit=crop" alt="Grilled Salmon" />
+              </div>
+              <div class="order-row__info">
+                <p class="order-row__name">Grilled Atlantic Salmon</p>
+                <p class="order-row__date"><i class="fa-regular fa-calendar"></i> March 15, 2025 · Midtown Market</p>
+              </div>
+              <div class="order-row__right">
+                <span class="status-badge status-badge--delivered">Delivered</span>
+                <span class="order-row__price">$22.99</span>
+                <button class="btn-reorder">Reorder</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Favourite items -->
+        <div class="section-block">
+          <div class="section-block__hd">
+            <h2 class="section-block__title">Your Favourites</h2>
+            <button class="link-btn">View All <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+          <div class="fav-grid">
+            <div class="fav-card">
+              <div class="fav-card__img-wrap">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=160&fit=crop" alt="Classic Smash Burger" />
+                <button class="fav-heart active" aria-label="Remove favourite"><i class="fa-solid fa-heart"></i></button>
+              </div>
+              <div class="fav-card__body">
+                <p class="fav-card__name">Classic Smash Burger</p>
+                <p class="fav-card__price">$14.99</p>
+              </div>
+            </div>
+            <div class="fav-card">
+              <div class="fav-card__img-wrap">
+                <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=200&h=160&fit=crop" alt="Truffle Carbonara" />
+                <button class="fav-heart active" aria-label="Remove favourite"><i class="fa-solid fa-heart"></i></button>
+              </div>
+              <div class="fav-card__body">
+                <p class="fav-card__name">Truffle Carbonara</p>
+                <p class="fav-card__price">$18.99</p>
+              </div>
+            </div>
+            <div class="fav-card">
+              <div class="fav-card__img-wrap">
+                <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=200&h=160&fit=crop" alt="Grilled Salmon" />
+                <button class="fav-heart active" aria-label="Remove favourite"><i class="fa-solid fa-heart"></i></button>
+              </div>
+              <div class="fav-card__body">
+                <p class="fav-card__name">Grilled Salmon</p>
+                <p class="fav-card__price">$22.99</p>
+              </div>
+            </div>
+            <div class="fav-card">
+              <div class="fav-card__img-wrap">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200&h=160&fit=crop" alt="Garden Fresh Bowl" />
+                <button class="fav-heart active" aria-label="Remove favourite"><i class="fa-solid fa-heart"></i></button>
+              </div>
+              <div class="fav-card__body">
+                <p class="fav-card__name">Garden Fresh Bowl</p>
+                <p class="fav-card__price">$12.99</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ TAB: ORDER HISTORY ══ -->
+      <div class="tab-panel" id="tab-orders">
+        <div class="panel-header">
+          <div>
+            <h1 class="panel-title">Order <span class="accent">History</span></h1>
+            <p class="panel-sub">All 47 orders across every location</p>
+          </div>
+          <div class="orders-filter-row">
+            <select class="filter-select" id="orderFilter">
+              <option value="all">All Orders</option>
+              <option value="delivered">Delivered</option>
+              <option value="active">Active</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="orders-full-list" id="ordersFullList">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- ══ TAB: ADDRESSES ══ -->
+      <div class="tab-panel" id="tab-addresses">
+        <div class="panel-header">
+          <div>
+            <h1 class="panel-title">Saved <span class="accent">Addresses</span></h1>
+            <p class="panel-sub">Manage your delivery locations</p>
+          </div>
+          <button class="btn btn-primary" id="addAddressBtn">
+            <i class="fa-solid fa-plus"></i> Add Address
+          </button>
+        </div>
+
+        <div class="addresses-grid" id="addressesGrid">
+          <div class="address-card address-card--default">
+            <div class="address-card__icon"><i class="fa-solid fa-house"></i></div>
+            <div class="address-card__body">
+              <div class="address-card__top">
+                <span class="address-card__label">Home</span>
+                <span class="default-tag">Default</span>
+              </div>
+              <p class="address-card__text">123 Oak Street, Apt 4B<br />Flavor Town, FT 10001</p>
+            </div>
+            <div class="address-card__actions">
+              <button class="icon-btn" aria-label="Edit address"><i class="fa-regular fa-pen-to-square"></i></button>
+              <button class="icon-btn icon-btn--danger" aria-label="Delete address"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+          </div>
+
+          <div class="address-card">
+            <div class="address-card__icon"><i class="fa-solid fa-briefcase"></i></div>
+            <div class="address-card__body">
+              <div class="address-card__top">
+                <span class="address-card__label">Work</span>
+              </div>
+              <p class="address-card__text">500 Commerce Ave, Floor 12<br />Midtown, FT 10018</p>
+            </div>
+            <div class="address-card__actions">
+              <button class="icon-btn" aria-label="Edit address"><i class="fa-regular fa-pen-to-square"></i></button>
+              <button class="icon-btn icon-btn--danger" aria-label="Delete address"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+          </div>
+
+          <div class="address-card">
+            <div class="address-card__icon"><i class="fa-solid fa-star"></i></div>
+            <div class="address-card__body">
+              <div class="address-card__top">
+                <span class="address-card__label">Mum's Place</span>
+              </div>
+              <p class="address-card__text">78 Citrus Lane<br />East End, FT 10072</p>
+            </div>
+            <div class="address-card__actions">
+              <button class="icon-btn" aria-label="Edit address"><i class="fa-regular fa-pen-to-square"></i></button>
+              <button class="icon-btn icon-btn--danger" aria-label="Delete address"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+          </div>
+
+          <!-- Add new placeholder -->
+          <button class="address-card address-card--add" id="addAddressCard" aria-label="Add new address">
+            <i class="fa-solid fa-plus"></i>
+            <span>Add New Address</span>
+          </button>
+        </div>
+
+        <!-- Add address form (hidden by default) -->
+        <div class="address-form-wrap hidden" id="addressFormWrap">
+          <div class="form-card">
+            <h3 class="form-card__title"><i class="fa-solid fa-location-dot"></i> New Address</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Address Label</label>
+                <input type="text" class="form-input" placeholder="e.g. Home, Work, Gym…" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Street Address</label>
+                <input type="text" class="form-input" placeholder="123 Main St, Apt 2A" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">City</label>
+                <input type="text" class="form-input" placeholder="City" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">ZIP Code</label>
+                <input type="text" class="form-input" placeholder="10001" />
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-outline" id="cancelAddressBtn">Cancel</button>
+              <button class="btn btn-primary" id="saveAddressBtn">Save Address</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ TAB: PAYMENT ══ -->
+      <div class="tab-panel" id="tab-payment">
+        <div class="panel-header">
+          <div>
+            <h1 class="panel-title">Payment <span class="accent">Methods</span></h1>
+            <p class="panel-sub">Manage your cards and wallets</p>
+          </div>
+          <button class="btn btn-primary" id="addCardBtn">
+            <i class="fa-solid fa-plus"></i> Add Card
+          </button>
+        </div>
+
+        <div class="payment-grid">
+          <!-- Credit card visual -->
+          <div class="pay-card pay-card--visa pay-card--default">
+            <div class="pay-card__chip"><i class="fa-solid fa-microchip"></i></div>
+            <div class="pay-card__network"><i class="fa-brands fa-cc-visa"></i></div>
+            <div class="pay-card__number">•••• •••• •••• 4821</div>
+            <div class="pay-card__info">
+              <div>
+                <span class="pay-card__info-label">Card Holder</span>
+                <span class="pay-card__info-val">Marcus Johnson</span>
+              </div>
+              <div>
+                <span class="pay-card__info-label">Expires</span>
+                <span class="pay-card__info-val">09 / 27</span>
+              </div>
+            </div>
+            <span class="pay-card__default-tag">Default</span>
+            <div class="pay-card__actions">
+              <button class="pay-action-btn" aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button>
+              <button class="pay-action-btn pay-action-btn--danger" aria-label="Remove"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+          </div>
+
+          <div class="pay-card pay-card--mc">
+            <div class="pay-card__chip"><i class="fa-solid fa-microchip"></i></div>
+            <div class="pay-card__network"><i class="fa-brands fa-cc-mastercard"></i></div>
+            <div class="pay-card__number">•••• •••• •••• 7634</div>
+            <div class="pay-card__info">
+              <div>
+                <span class="pay-card__info-label">Card Holder</span>
+                <span class="pay-card__info-val">Marcus Johnson</span>
+              </div>
+              <div>
+                <span class="pay-card__info-label">Expires</span>
+                <span class="pay-card__info-val">03 / 26</span>
+              </div>
+            </div>
+            <div class="pay-card__actions">
+              <button class="pay-action-btn" aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button>
+              <button class="pay-action-btn pay-action-btn--danger" aria-label="Remove"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+          </div>
+
+          <!-- Wallet row -->
+          <div class="wallet-row">
+            <div class="wallet-item">
+              <div class="wallet-item__icon" style="background:#000"><i class="fa-brands fa-apple-pay"></i></div>
+              <div class="wallet-item__info">
+                <p class="wallet-item__name">Apple Pay</p>
+                <p class="wallet-item__sub">Linked to iPhone</p>
+              </div>
+              <span class="wallet-badge wallet-badge--linked">Linked</span>
+            </div>
+            <div class="wallet-item">
+              <div class="wallet-item__icon" style="background:#1a73e8"><i class="fa-brands fa-google-pay"></i></div>
+              <div class="wallet-item__info">
+                <p class="wallet-item__name">Google Pay</p>
+                <p class="wallet-item__sub">Not connected</p>
+              </div>
+              <button class="wallet-badge wallet-badge--connect">Connect</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add card form (hidden by default) -->
+        <div class="address-form-wrap hidden" id="cardFormWrap">
+          <div class="form-card">
+            <h3 class="form-card__title"><i class="fa-solid fa-credit-card"></i> New Card</h3>
+            <div class="form-grid">
+              <div class="form-group form-group--full">
+                <label class="form-label">Card Number</label>
+                <input type="text" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19" id="cardNumInput" />
+              </div>
+              <div class="form-group form-group--full">
+                <label class="form-label">Card Holder Name</label>
+                <input type="text" class="form-input" placeholder="Marcus Johnson" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Expiry Date</label>
+                <input type="text" class="form-input" placeholder="MM / YY" maxlength="7" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">CVV</label>
+                <input type="password" class="form-input" placeholder="•••" maxlength="4" />
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-outline" id="cancelCardBtn">Cancel</button>
+              <button class="btn btn-primary" id="saveCardBtn">Save Card</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ TAB: SETTINGS ══ -->
+      <div class="tab-panel" id="tab-settings">
+        <div class="panel-header">
+          <div>
+            <h1 class="panel-title">Account <span class="accent">Settings</span></h1>
+            <p class="panel-sub">Manage your personal information and preferences</p>
+          </div>
+        </div>
+
+        <!-- Personal Info -->
+        <div class="settings-section">
+          <div class="settings-section__hd">
+            <h2 class="settings-section__title">Personal Information</h2>
+            <button class="link-btn" id="editPersonalBtn"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
+          </div>
+          <div class="settings-form" id="personalForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-input" value="Marcus" disabled />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-input" value="Johnson" disabled />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-input" value="marcus.j@email.com" disabled />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-input" value="(555) 842-1190" disabled />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Date of Birth</label>
+                <input type="date" class="form-input" value="1992-07-14" disabled />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Gender</label>
+                <select class="form-input" disabled>
+                  <option selected>Male</option>
+                  <option>Female</option>
+                  <option>Prefer not to say</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-actions hidden" id="personalFormActions">
+              <button class="btn btn-outline" id="cancelPersonalBtn">Cancel</button>
+              <button class="btn btn-primary" id="savePersonalBtn">Save Changes</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security -->
+        <div class="settings-section">
+          <div class="settings-section__hd">
+            <h2 class="settings-section__title">Security</h2>
+          </div>
+          <div class="security-items">
+            <div class="security-item">
+              <div class="security-item__icon"><i class="fa-solid fa-lock"></i></div>
+              <div class="security-item__info">
+                <p class="security-item__name">Password</p>
+                <p class="security-item__sub">Last changed 3 months ago</p>
+              </div>
+              <button class="btn btn-outline-sm">Change Password</button>
+            </div>
+            <div class="security-item">
+              <div class="security-item__icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="security-item__info">
+                <p class="security-item__name">Two-Factor Authentication</p>
+                <p class="security-item__sub">Adds an extra layer of security</p>
+              </div>
+              <label class="toggle-switch" aria-label="Toggle 2FA">
+                <input type="checkbox" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="security-item">
+              <div class="security-item__icon"><i class="fa-solid fa-mobile-screen"></i></div>
+              <div class="security-item__info">
+                <p class="security-item__name">Login Notifications</p>
+                <p class="security-item__sub">Get alerted to new sign-ins</p>
+              </div>
+              <label class="toggle-switch" aria-label="Toggle login notifications">
+                <input type="checkbox" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notification Preferences -->
+        <div class="settings-section">
+          <div class="settings-section__hd">
+            <h2 class="settings-section__title">Notifications</h2>
+          </div>
+          <div class="security-items">
+            <div class="security-item">
+              <div class="security-item__icon"><i class="fa-solid fa-bell"></i></div>
+              <div class="security-item__info">
+                <p class="security-item__name">Order Updates</p>
+                <p class="security-item__sub">Track your delivery in real time</p>
+              </div>
+              <label class="toggle-switch" aria-label="Order updates">
+                <input type="checkbox" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="security-item">
+              <div class="security-item__icon"><i class="fa-solid fa-tag"></i></div>
+              <div class="security-item__info">
+                <p class="security-item__name">Promotions & Offers</p>
+                <p class="security-item__sub">Exclusive deals just for you</p>
+              </div>
+              <label class="toggle-switch" aria-label="Promotions">
+                <input type="checkbox" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="security-item">
+              <div class="security-item__icon"><i class="fa-regular fa-envelope"></i></div>
+              <div class="security-item__info">
+                <p class="security-item__name">Newsletter</p>
+                <p class="security-item__sub">Monthly recipes and updates</p>
+              </div>
+              <label class="toggle-switch" aria-label="Newsletter">
+                <input type="checkbox" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Danger Zone -->
+        <div class="settings-section settings-section--danger">
+          <div class="settings-section__hd">
+            <h2 class="settings-section__title">Danger Zone</h2>
+          </div>
+          <div class="danger-zone">
+            <div class="danger-item">
+              <div>
+                <p class="danger-item__name">Delete Account</p>
+                <p class="danger-item__sub">Permanently remove your account and all data. This cannot be undone.</p>
+              </div>
+              <button class="btn btn-danger" id="deleteAccountBtn">Delete Account</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMsg">Changes saved!</span>
+  </div>
+
+  <!-- ===== CONFIRM MODAL ===== -->
+  <div class="modal-overlay hidden" id="modalOverlay">
+    <div class="modal">
+      <div class="modal__icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <h3 class="modal__title" id="modalTitle">Are you sure?</h3>
+      <p class="modal__body" id="modalBody">This action cannot be undone.</p>
+      <div class="modal__actions">
+        <button class="btn btn-outline" id="modalCancel">Cancel</button>
+        <button class="btn btn-danger" id="modalConfirm">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="profile.js"></script>
+</body>
+</html>

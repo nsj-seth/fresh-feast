@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu — FreshFeast</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="menu.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">F</div>
+        <span class="logo-text">Fresh<span class="logo-accent">Feast</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="menu.html" class="nav-link active">Menu</a>
+        <a href="preferences.html" class="nav-link">Preferences</a>
+        <a href="support.html" class="nav-link">Support</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="location.html"><button class="nav-icon-btn"><i class="fa-solid fa-location-dot"></i></button></a>
+        <a href="profile.html"><button class="nav-icon-btn"><i class="fa-regular fa-user"></i></button></a>
+        <a href="cart.html" class="nav-icon-btn cart-btn">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="menu-hero">
+    <div class="container menu-hero-inner">
+      <h1 class="menu-page-title">Our <span class="accent">Menu</span></h1>
+      <p class="menu-page-sub">Explore our full selection of freshly prepared dishes</p>
+    </div>
+  </section>
+
+  <section class="menu-section">
+    <div class="container">
+      <div class="menu-controls" data-animate="fade-up">
+        <div class="search-wrap">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search dishes..." autocomplete="off" />
+          <button class="search-clear" id="searchClear"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <button class="filter-btn" id="filterBtn"><i class="fa-solid fa-sliders"></i> Filters</button>
+      </div>
+
+      <div class="category-tabs" id="categoryTabs" data-animate="fade-up">
+        <button class="tab-pill active" data-cat="all">All</button>
+        <button class="tab-pill" data-cat="burgers">Burgers</button>
+        <button class="tab-pill" data-cat="seafood">Seafood</button>
+        <button class="tab-pill" data-cat="salads">Salads</button>
+        <button class="tab-pill" data-cat="pasta">Pasta</button>
+        <button class="tab-pill" data-cat="desserts">Desserts</button>
+        <button class="tab-pill" data-cat="drinks">Drinks</button>
+      </div>
+
+      <div class="results-meta" id="resultsMeta" data-animate="fade-up">
+        <span id="resultsCount">12</span> dishes found
+      </div>
+
+      <div class="cards-grid menu-grid" id="menuGrid"></div>
+
+      <div class="empty-state" id="emptyState" style="display:none;">
+        <div class="empty-icon"><i class="fa-solid fa-bowl-food"></i></div>
+        <h3>No dishes found</h3>
+        <p>Try a different search term or category</p>
+        <button class="btn btn-primary" id="resetBtn"><i class="fa-solid fa-rotate-left"></i> Reset Filters</button>
+      </div>
+
+      <div class="load-more-wrap" id="loadMoreWrap">
+        <button class="btn btn-outline-lg" id="loadMoreBtn">Load More Dishes <i class="fa-solid fa-chevron-down"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-light">
+          <div class="logo-icon">F</div>
+          <span class="logo-text">Fresh<span class="logo-accent">Feast</span></span>
+        </a>
+        <p class="footer-tagline">Fresh, delicious meals delivered to your door. Made with love, served with care.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="#">Locations</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Support</h4>
+        <ul class="footer-list">
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Delivery Info</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Contact Us</h4>
+        <ul class="footer-list footer-contact">
+          <li><i class="fa-solid fa-phone"></i> (555) 123-4567</li>
+          <li><i class="fa-regular fa-envelope"></i> hello@freshfeast.com</li>
+          <li><i class="fa-solid fa-location-dot"></i> 123 Foodie Street, Flavor Town, FT 12345</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&#169; 2024 FreshFeast. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span id="toastMsg">Item added to cart!</span>
+  </div>
+
+  <script src="cart-store.js"></script>
+  <script src="menu.js"></script>
+</body>
+</html>

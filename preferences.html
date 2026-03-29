@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preferences — FreshFeast</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="preferences.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">F</div>
+        <span class="logo-text">Fresh<span class="logo-accent">Feast</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="menu.html" class="nav-link">Menu</a>
+        <a href="preferences.html" class="nav-link active">Preferences</a>
+        <a href="support.html" class="nav-link">Support</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="location.html"><button class="nav-icon-btn"><i class="fa-solid fa-location-dot"></i></button></a>
+        <a href="profile.html"><button class="nav-icon-btn"><i class="fa-regular fa-user"></i></button></a>
+        <a href="cart.html" class="nav-icon-btn cart-btn">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="pref-hero">
+    <div class="container pref-hero-inner">
+      <h1 class="pref-page-title">Your <span class="accent">Preferences</span></h1>
+      <p class="pref-page-sub">Customize your dining experience by setting your dietary preferences</p>
+    </div>
+  </section>
+
+  <section class="pref-section">
+    <div class="container pref-container">
+
+      <div class="pref-group" data-animate="fade-up">
+        <h2 class="pref-group-title">Dietary Preference</h2>
+        <div class="pref-cards-grid">
+          <button class="pref-card" data-group="dietary" data-value="vegetarian" aria-pressed="false">
+            <div class="pref-card-icon" style="--icon-color:#4caf7d;--icon-bg:rgba(76,175,125,0.1)"><i class="fa-solid fa-leaf"></i></div>
+            <span class="pref-card-label">Vegetarian</span>
+          </button>
+          <button class="pref-card" data-group="dietary" data-value="vegan" aria-pressed="false">
+            <div class="pref-card-icon" style="--icon-color:#3e8e6e;--icon-bg:rgba(62,142,110,0.1)"><i class="fa-solid fa-seedling"></i></div>
+            <span class="pref-card-label">Vegan</span>
+          </button>
+          <button class="pref-card" data-group="dietary" data-value="pescatarian" aria-pressed="false">
+            <div class="pref-card-icon" style="--icon-color:#2b7bb9;--icon-bg:rgba(43,123,185,0.1)"><i class="fa-solid fa-fish"></i></div>
+            <span class="pref-card-label">Pescatarian</span>
+          </button>
+          <button class="pref-card" data-group="dietary" data-value="keto" aria-pressed="false">
+            <div class="pref-card-icon" style="--icon-color:#e8620a;--icon-bg:rgba(232,98,10,0.1)"><i class="fa-solid fa-fire-flame-curved"></i></div>
+            <span class="pref-card-label">Keto</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="pref-group" data-animate="fade-up" data-delay="100">
+        <h2 class="pref-group-title">Allergen Restrictions</h2>
+        <div class="pref-cards-grid">
+          <button class="pref-card" data-group="allergen" data-value="gluten-free" aria-pressed="false">
+            <div class="pref-card-icon" style="--icon-color:#8b6914;--icon-bg:rgba(139,105,20,0.1)"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i></div>
+            <span class="pref-card-label">Gluten-Free</span>
+          </button>
+          <button class="pref-card" data-group="allergen" data-value="dairy-free" aria-pressed="false">
+            <div class="pref-card-icon" style="--icon-color:#6b7280;--icon-bg:rgba(107,114,128,0.1)"><i class="fa-solid fa-bottle-droplet"></i></div>
+            <span class="pref-card-label">Dairy-Free</span>
+          </button>
+          <button class="pref-card" data-group="allergen" data-value="egg-free" aria-pressed="false">
+            <div class="pref-card-icon" style="--icon-color:#9c7a3c;--icon-bg:rgba(156,122,60,0.1)"><i class="fa-solid fa-egg"></i></div>
+            <span class="pref-card-label">Egg-Free</span>
+          </button>
+          <button class="pref-card" data-group="allergen" data-value="nut-free" aria-pressed="false">
+            <div class="pref-card-icon" style="--icon-color:#5a6e3c;--icon-bg:rgba(90,110,60,0.1)"><i class="fa-brands fa-pagelines"></i></div>
+            <span class="pref-card-label">Nut-Free</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="pref-group" data-animate="fade-up" data-delay="200">
+        <h2 class="pref-group-title">Spice Preference</h2>
+        <div class="spice-pills" id="spiceGroup">
+          <button class="spice-pill" data-value="mild" aria-pressed="false">Mild</button>
+          <button class="spice-pill active" data-value="medium" aria-pressed="true">Medium</button>
+          <button class="spice-pill" data-value="hot" aria-pressed="false">Hot</button>
+          <button class="spice-pill" data-value="extra-hot" aria-pressed="false"><i class="fa-solid fa-pepper-hot"></i> Extra Hot</button>
+        </div>
+      </div>
+
+      <div class="pref-save-wrap" data-animate="fade-up" data-delay="300">
+        <button class="btn-save-pref" id="saveBtn">Save Preferences</button>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-light">
+          <div class="logo-icon">F</div>
+          <span class="logo-text">Fresh<span class="logo-accent">Feast</span></span>
+        </a>
+        <p class="footer-tagline">Fresh, delicious meals delivered to your door. Made with love, served with care.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="#">Locations</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Support</h4>
+        <ul class="footer-list">
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Delivery Info</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Contact Us</h4>
+        <ul class="footer-list footer-contact">
+          <li><i class="fa-solid fa-phone"></i> (555) 123-4567</li>
+          <li><i class="fa-regular fa-envelope"></i> hello@freshfeast.com</li>
+          <li><i class="fa-solid fa-location-dot"></i> 123 Foodie Street, Flavor Town</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&#169; 2024 FreshFeast. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMsg">Preferences saved!</span>
+  </div>
+
+  <script src="cart-store.js"></script>
+  <script src="preferences.js"></script>
+</body>
+</html>

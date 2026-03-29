@@ -1,0 +1,270 @@
+/* ============================
+   preferences.css — FreshFeast
+============================ */
+
+/* ── Page Hero ────────────────────────────────────── */
+.pref-hero {
+  padding: 4rem 0 2.5rem;
+  text-align: center;
+  background: var(--clr-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.pref-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 15% 50%, rgba(232,98,10,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 70% at 85% 50%, rgba(251,191,36,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pref-hero-inner { position: relative; z-index: 1; }
+
+.pref-page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--clr-dark);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+}
+
+.pref-page-sub {
+  font-size: 0.95rem;
+  color: var(--clr-muted);
+}
+
+/* ── Section ──────────────────────────────────────── */
+.pref-section {
+  padding: 2rem 0 6rem;
+  background: var(--clr-bg);
+}
+
+.pref-container {
+  max-width: 760px;
+}
+
+/* ── Group ────────────────────────────────────────── */
+.pref-group {
+  margin-bottom: 2.8rem;
+}
+
+.pref-group-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--clr-dark);
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+/* ── Dietary / Allergen Cards ─────────────────────── */
+.pref-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.pref-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.6rem 1rem;
+  background: var(--clr-white);
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.pref-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--clr-primary);
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+}
+
+.pref-card:hover {
+  border-color: var(--clr-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(232,98,10,0.12);
+}
+
+.pref-card.selected {
+  border-color: var(--clr-primary);
+  background: rgba(232, 98, 10, 0.04);
+  box-shadow: 0 0 0 3px rgba(232,98,10,0.15);
+}
+
+/* Checkmark badge when selected */
+.pref-card.selected::before {
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 0.65rem;
+  width: 18px;
+  height: 18px;
+  background: var(--clr-primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 18px;
+  text-align: center;
+}
+
+.pref-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  background: var(--icon-bg);
+  color: var(--icon-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  transition: transform var(--transition);
+}
+
+.pref-card:hover .pref-card-icon,
+.pref-card.selected .pref-card-icon {
+  transform: scale(1.1);
+}
+
+.pref-card-label {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--clr-text);
+  transition: color var(--transition);
+}
+
+.pref-card.selected .pref-card-label {
+  color: var(--clr-primary);
+  font-weight: 600;
+}
+
+/* ── Spice Pills ──────────────────────────────────── */
+.spice-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.spice-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 1.2rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--clr-muted);
+  background: var(--clr-white);
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.spice-pill:hover {
+  border-color: var(--clr-primary);
+  color: var(--clr-primary);
+}
+
+.spice-pill.active {
+  background: var(--clr-primary);
+  color: var(--clr-white);
+  border-color: var(--clr-primary);
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(232,98,10,0.3);
+}
+
+.spice-pill i { font-size: 0.85rem; }
+
+/* ── Save Button ──────────────────────────────────── */
+.pref-save-wrap {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-save-pref {
+  height: 52px;
+  padding: 0 3rem;
+  background: var(--clr-primary);
+  color: var(--clr-white);
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(232,98,10,0.35);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-save-pref::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.12);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.btn-save-pref:hover {
+  background: var(--clr-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(232,98,10,0.45);
+}
+
+.btn-save-pref:hover::after { opacity: 1; }
+
+.btn-save-pref:active { transform: scale(0.97); }
+
+.btn-save-pref.saving {
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* ── Toast override for green check ──────────────── */
+.toast i.fa-circle-check { color: #4caf7d; }
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 700px) {
+  .pref-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .pref-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .pref-card { padding: 1.2rem 0.75rem; }
+
+  .spice-pills { gap: 0.5rem; }
+
+  .btn-save-pref { width: 100%; justify-content: center; }
+}

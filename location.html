@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreshFeast — Find a Location</title>
+    <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="location.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">F</div>
+        <span class="logo-text">Fresh<span class="logo-accent">Feast</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="menu.html" class="nav-link">Menu</a>
+        <a href="preferences.html" class="nav-link">Preferences</a>
+        <a href="support.html" class="nav-link">Support</a>
+      </nav>
+
+      <div class="nav-actions active">
+        <a href="location.html"><button class="nav-icon-btn" aria-label="Location">
+          <i class="fa-solid fa-location-dot"></i>
+          </button>
+        </a>
+        <a href="profile.html"><button class="nav-icon-btn" aria-label="Account">
+          <i class="fa-regular fa-user"></i>
+        </button></a>
+        <a href="cart.html"><button class="nav-icon-btn cart-btn" aria-label="Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button></a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="loc-hero">
+    <div class="loc-hero__bg-pattern"></div>
+    <div class="container loc-hero__inner">
+      <div class="loc-hero__breadcrumb" data-animate="fade-up">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>Locations</span>
+      </div>
+      <h1 class="loc-hero__title" data-animate="fade-up" data-delay="80">
+        Find Us <span class="accent italic">Near You</span>
+      </h1>
+      <p class="loc-hero__sub" data-animate="fade-up" data-delay="160">
+        Six locations across the city — each one crafted with the same love for fresh, local food.
+      </p>
+
+      <!-- Search bar -->
+      <div class="search-bar" data-animate="fade-up" data-delay="240">
+        <div class="search-bar__icon"><i class="fa-solid fa-location-dot"></i></div>
+        <input
+          type="text"
+          class="search-bar__input"
+          id="searchInput"
+          placeholder="Search by city, neighbourhood, or ZIP…"
+          autocomplete="off"
+          aria-label="Search locations"
+        />
+        <button class="search-bar__btn" id="searchBtn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span>Search</span>
+        </button>
+      </div>
+
+      <!-- Quick filter pills -->
+      <div class="filter-pills" data-animate="fade-up" data-delay="320">
+        <button class="pill pill--active" data-filter="all">All Locations</button>
+        <button class="pill" data-filter="open">Open Now</button>
+        <button class="pill" data-filter="delivery">Delivery</button>
+        <button class="pill" data-filter="dine-in">Dine-In</button>
+        <button class="pill" data-filter="drive-thru">Drive-Thru</button>
+      </div>
+    </div>
+
+    <!-- decorative blobs -->
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+  </section>
+
+  <!-- ===== MAIN GRID: MAP + CARDS ===== -->
+  <section class="loc-main">
+    <div class="container loc-main__inner">
+
+      <!-- ── LEFT: Cards ── -->
+      <div class="loc-cards-col">
+        <p class="results-label" id="resultsLabel"><strong>6</strong> locations found</p>
+
+        <ul class="loc-cards-list" id="locationsList">
+
+          <!-- Card 1 -->
+          <li class="loc-card" data-tags="open delivery dine-in" data-city="downtown" data-animate="fade-up" data-delay="0">
+            <div class="loc-card__header">
+              <div class="loc-card__pin">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="loc-card__num">01</span>
+              </div>
+              <div class="loc-card__title-group">
+                <h2 class="loc-card__name">Downtown District</h2>
+                <p class="loc-card__address">123 Foodie Street, Flavor Town, FT 10001</p>
+              </div>
+              <div class="loc-card__badges">
+                <span class="badge badge--open"><i class="fa-solid fa-circle"></i> Open Now</span>
+              </div>
+            </div>
+            <div class="loc-card__meta">
+              <div class="loc-card__meta-item">
+                <i class="fa-regular fa-clock"></i>
+                <span>Mon–Sun · <strong>8 AM – 10 PM</strong></span>
+              </div>
+              <div class="loc-card__meta-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>(555) 100-2001</span>
+              </div>
+              <div class="loc-card__meta-item">
+                <i class="fa-solid fa-star"></i>
+                <span><strong>4.9</strong> (312 reviews)</span>
+              </div>
+            </div>
+            <div class="loc-card__services">
+              <span class="service-tag"><i class="fa-solid fa-motorcycle"></i> Delivery</span>
+              <span class="service-tag"><i class="fa-solid fa-utensils"></i> Dine-In</span>
+            </div>
+            <div class="loc-card__actions">
+              <a href="https://maps.google.com/?q=123+Foodie+Street" target="_blank" rel="noopener" class="btn-directions">
+                <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+              </a>
+              <a href="menu.html" class="btn-order">Order Now</a>
+            </div>
+          </li>
+
+          <!-- Card 2 -->
+          <li class="loc-card" data-tags="open delivery dine-in drive-thru" data-city="midtown" data-animate="fade-up" data-delay="80">
+            <div class="loc-card__header">
+              <div class="loc-card__pin">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="loc-card__num">02</span>
+              </div>
+              <div class="loc-card__title-group">
+                <h2 class="loc-card__name">Midtown Market</h2>
+                <p class="loc-card__address">47 Blossom Ave, Midtown, FT 10018</p>
+              </div>
+              <div class="loc-card__badges">
+                <span class="badge badge--open"><i class="fa-solid fa-circle"></i> Open Now</span>
+              </div>
+            </div>
+            <div class="loc-card__meta">
+              <div class="loc-card__meta-item">
+                <i class="fa-regular fa-clock"></i>
+                <span>Mon–Sun · <strong>7 AM – 11 PM</strong></span>
+              </div>
+              <div class="loc-card__meta-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>(555) 100-2002</span>
+              </div>
+              <div class="loc-card__meta-item">
+                <i class="fa-solid fa-star"></i>
+                <span><strong>4.8</strong> (289 reviews)</span>
+              </div>
+            </div>
+            <div class="loc-card__services">
+              <span class="service-tag"><i class="fa-solid fa-motorcycle"></i> Delivery</span>
+              <span class="service-tag"><i class="fa-solid fa-utensils"></i> Dine-In</span>
+              <span class="service-tag"><i class="fa-solid fa-car"></i> Drive-Thru</span>
+            </div>
+            <div class="loc-card__actions">
+              <a href="https://maps.google.com/?q=47+Blossom+Ave" target="_blank" rel="noopener" class="btn-directions">
+                <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+              </a>
+              <a href="menu.html" class="btn-order">Order Now</a>
+            </div>
+          </li>
+
+          <!-- Card 3 -->
+          <li class="loc-card" data-tags="delivery" data-city="westside" data-animate="fade-up" data-delay="160">
+            <div class="loc-card__header">
+              <div class="loc-card__pin">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="loc-card__num">03</span>
+              </div>
+              <div class="loc-card__title-group">
+                <h2 class="loc-card__name">Westside Kitchen</h2>
+                <p class="loc-card__address">9 Harvest Blvd, Westside, FT 10031</p>
+              </div>
+              <div class="loc-card__badges">
+                <span class="badge badge--closed"><i class="fa-solid fa-circle"></i> Closed</span>
+              </div>
+            </div>
+            <div class="loc-card__meta">
+              <div class="loc-card__meta-item">
+                <i class="fa-regular fa-clock"></i>
+                <span>Mon–Sat · <strong>10 AM – 9 PM</strong></span>
+              </div>
+              <div class="loc-card__meta-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>(555) 100-2003</span>
+              </div>
+              <div class="loc-card__meta-item">
+                <i class="fa-solid fa-star"></i>
+                <span><strong>4.7</strong> (198 reviews)</span>
+              </div>
+            </div>
+            <div class="loc-card__services">
+              <span class="service-tag"><i class="fa-solid fa-motorcycle"></i> Delivery</span>
+            </div>
+            <div class="loc-card__actions">
+              <a href="https://maps.google.com/?q=9+Harvest+Blvd" target="_blank" rel="noopener" class="btn-directions">
+                <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+              </a>
+              <a href="menu.html" class="btn-order">Order Now</a>
+            </div>
+          </li>
+
+          <!-- Card 4 -->
+          <li class="loc-card" data-tags="open dine-in drive-thru" data-city="northgate" data-animate="fade-up" data-delay="240">
+            <div class="loc-card__header">
+              <div class="loc-card__pin">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="loc-card__num">04</span>
+              </div>
+              <div class="loc-card__title-group">
+                <h2 class="loc-card__name">Northgate Square</h2>
+                <p class="loc-card__address">200 Maple Court, Northgate, FT 10055</p>
+              </div>
+              <div class="loc-card__badges">
+                <span class="badge badge--open"><i class="fa-solid fa-circle"></i> Open Now</span>
+              </div>
+            </div>
+            <div class="loc-card__meta">
+              <div class="loc-card__meta-item">
+                <i class="fa-regular fa-clock"></i>
+                <span>Mon–Sun · <strong>9 AM – 10 PM</strong></span>
+              </div>
+              <div class="loc-card__meta-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>(555) 100-2004</span>
+              </div>
+              <div class="loc-card__meta-item">
+                <i class="fa-solid fa-star"></i>
+                <span><strong>4.8</strong> (241 reviews)</span>
+              </div>
+            </div>
+            <div class="loc-card__services">
+              <span class="service-tag"><i class="fa-solid fa-utensils"></i> Dine-In</span>
+              <span class="service-tag"><i class="fa-solid fa-car"></i> Drive-Thru</span>
+            </div>
+            <div class="loc-card__actions">
+              <a href="https://maps.google.com/?q=200+Maple+Court" target="_blank" rel="noopener" class="btn-directions">
+                <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+              </a>
+              <a href="menu.html" class="btn-order">Order Now</a>
+            </div>
+          </li>
+
+          <!-- Card 5 -->
+          <li class="loc-card" data-tags="open delivery dine-in" data-city="eastend" data-animate="fade-up" data-delay="320">
+            <div class="loc-card__header">
+              <div class="loc-card__pin">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="loc-card__num">05</span>
+              </div>
+              <div class="loc-card__title-group">
+                <h2 class="loc-card__name">East End Garden</h2>
+                <p class="loc-card__address">78 Citrus Lane, East End, FT 10072</p>
+              </div>
+              <div class="loc-card__badges">
+                <span class="badge badge--open"><i class="fa-solid fa-circle"></i> Open Now</span>
+              </div>
+            </div>
+            <div class="loc-card__meta">
+              <div class="loc-card__meta-item">
+                <i class="fa-regular fa-clock"></i>
+                <span>Tue–Sun · <strong>11 AM – 10 PM</strong></span>
+              </div>
+              <div class="loc-card__meta-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>(555) 100-2005</span>
+              </div>
+              <div class="loc-card__meta-item">
+                <i class="fa-solid fa-star"></i>
+                <span><strong>4.9</strong> (405 reviews)</span>
+              </div>
+            </div>
+            <div class="loc-card__services">
+              <span class="service-tag"><i class="fa-solid fa-motorcycle"></i> Delivery</span>
+              <span class="service-tag"><i class="fa-solid fa-utensils"></i> Dine-In</span>
+            </div>
+            <div class="loc-card__actions">
+              <a href="https://maps.google.com/?q=78+Citrus+Lane" target="_blank" rel="noopener" class="btn-directions">
+                <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+              </a>
+              <a href="menu.html" class="btn-order">Order Now</a>
+            </div>
+          </li>
+
+          <!-- Card 6 -->
+          <li class="loc-card" data-tags="delivery drive-thru" data-city="southpark" data-animate="fade-up" data-delay="400">
+            <div class="loc-card__header">
+              <div class="loc-card__pin">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="loc-card__num">06</span>
+              </div>
+              <div class="loc-card__title-group">
+                <h2 class="loc-card__name">South Park Bites</h2>
+                <p class="loc-card__address">5 Grove Street, South Park, FT 10089</p>
+              </div>
+              <div class="loc-card__badges">
+                <span class="badge badge--closed"><i class="fa-solid fa-circle"></i> Closed</span>
+              </div>
+            </div>
+            <div class="loc-card__meta">
+              <div class="loc-card__meta-item">
+                <i class="fa-regular fa-clock"></i>
+                <span>Mon–Fri · <strong>8 AM – 8 PM</strong></span>
+              </div>
+              <div class="loc-card__meta-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>(555) 100-2006</span>
+              </div>
+              <div class="loc-card__meta-item">
+                <i class="fa-solid fa-star"></i>
+                <span><strong>4.6</strong> (177 reviews)</span>
+              </div>
+            </div>
+            <div class="loc-card__services">
+              <span class="service-tag"><i class="fa-solid fa-motorcycle"></i> Delivery</span>
+              <span class="service-tag"><i class="fa-solid fa-car"></i> Drive-Thru</span>
+            </div>
+            <div class="loc-card__actions">
+              <a href="https://maps.google.com/?q=5+Grove+Street" target="_blank" rel="noopener" class="btn-directions">
+                <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+              </a>
+              <a href="menu.html" class="btn-order">Order Now</a>
+            </div>
+          </li>
+
+        </ul>
+
+        <!-- No results state -->
+        <div class="no-results hidden" id="noResults">
+          <i class="fa-solid fa-map-pin no-results__icon"></i>
+          <p class="no-results__title">No locations found</p>
+          <p class="no-results__sub">Try a different search term or clear your filters.</p>
+          <button class="btn-clear-filters" id="clearFilters">Clear Filters</button>
+        </div>
+      </div>
+
+      <!-- ── RIGHT: Map ── -->
+      <aside class="loc-map-col" aria-label="Map view">
+        <div class="map-sticky">
+          <div class="map-wrap" id="mapWrap">
+            <!-- SVG illustrated map -->
+            <div class="map-canvas">
+              <iframe
+                title="FreshFeast locations map"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-74.02%2C40.70%2C-73.93%2C40.78&layer=mapnik"
+                class="map-iframe"
+                loading="lazy"
+              ></iframe>
+              <!-- overlay pins -->
+              <div class="map-pins" id="mapPins">
+                <button class="map-pin" style="left:22%;top:28%" data-loc="1" aria-label="Downtown District">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span class="map-pin__label">Downtown</span>
+                </button>
+                <button class="map-pin" style="left:48%;top:18%" data-loc="2" aria-label="Midtown Market">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span class="map-pin__label">Midtown</span>
+                </button>
+                <button class="map-pin map-pin--closed" style="left:14%;top:52%" data-loc="3" aria-label="Westside Kitchen">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span class="map-pin__label">Westside</span>
+                </button>
+                <button class="map-pin" style="left:62%;top:10%" data-loc="4" aria-label="Northgate Square">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span class="map-pin__label">Northgate</span>
+                </button>
+                <button class="map-pin" style="left:78%;top:40%" data-loc="5" aria-label="East End Garden">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span class="map-pin__label">East End</span>
+                </button>
+                <button class="map-pin map-pin--closed" style="left:40%;top:72%" data-loc="6" aria-label="South Park Bites">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span class="map-pin__label">South Park</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Map legend -->
+            <div class="map-legend">
+              <div class="legend-item">
+                <span class="legend-dot legend-dot--open"></span> Open
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot legend-dot--closed"></span> Closed
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick stat strip under map -->
+          <div class="map-stats">
+            <div class="map-stat">
+              <span class="map-stat__val">6</span>
+              <span class="map-stat__label">Locations</span>
+            </div>
+            <div class="map-stat-divider"></div>
+            <div class="map-stat">
+              <span class="map-stat__val">4</span>
+              <span class="map-stat__label">Open Now</span>
+            </div>
+            <div class="map-stat-divider"></div>
+            <div class="map-stat">
+              <span class="map-stat__val">30<small>min</small></span>
+              <span class="map-stat__label">Avg Delivery</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ===== DELIVERY CTA BANNER ===== -->
+  <section class="delivery-cta" data-animate="fade-up">
+    <div class="container delivery-cta__inner">
+      <div class="delivery-cta__text">
+        <h2 class="delivery-cta__title">Not near a location? <span class="accent">We deliver.</span></h2>
+        <p class="delivery-cta__sub">Enter your address and get fresh food at your doorstep in 30 minutes.</p>
+      </div>
+      <div class="delivery-cta__actions">
+        <div class="delivery-cta__input-wrap">
+          <i class="fa-solid fa-location-dot"></i>
+          <input type="text" placeholder="Enter your delivery address…" class="delivery-cta__input" aria-label="Delivery address" />
+        </div>
+        <a href="menu.html" class="btn btn-primary">Order Delivery <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="support">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-light">
+          <div class="logo-icon">F</div>
+          <span class="logo-text">Fresh<span class="logo-accent">Feast</span></span>
+        </a>
+        <p class="footer-tagline">Fresh, delicious meals delivered to your door. Made with love, served with care.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-list">
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Support</h4>
+        <ul class="footer-list">
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Delivery Info</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Contact Us</h4>
+        <ul class="footer-list footer-contact">
+          <li><i class="fa-solid fa-phone"></i> (555) 123-4567</li>
+          <li><i class="fa-regular fa-envelope"></i> hello@freshfeast.com</li>
+          <li><i class="fa-solid fa-location-dot"></i> 123 Foodie Street, Flavor Town, FT 12345</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 FreshFeast. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span id="toastMsg">Item added!</span>
+  </div>
+
+  <script src="location.js"></script>
+</body>
+</html>

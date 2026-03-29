@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart — FreshFeast</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="cart.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">F</div>
+        <span class="logo-text">Fresh<span class="logo-accent">Feast</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="menu.html" class="nav-link">Menu</a>
+        <a href="preferences.html" class="nav-link">Preferences</a>
+        <a href="support.html" class="nav-link">Support</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="location.html"><button class="nav-icon-btn"><i class="fa-solid fa-location-dot"></i></button></a>
+        <a href="profile.html"><button class="nav-icon-btn"><i class="fa-regular fa-user"></i></button></a>
+        <a href="cart.html" class="nav-icon-btn cart-btn">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="cart-section">
+    <div class="container cart-layout">
+
+      <div class="cart-col">
+        <h1 class="cart-title">Your <span class="accent">Cart</span></h1>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-empty" id="cartEmpty" style="display:none;">
+          <div class="cart-empty-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+          <h3>Your cart is empty</h3>
+          <p>Looks like you haven't added anything yet.</p>
+          <a href="menu.html" class="btn btn-primary"><i class="fa-solid fa-utensils"></i> Browse Menu</a>
+        </div>
+        <a href="menu.html" class="continue-link" id="continueLink">
+          <i class="fa-solid fa-arrow-left"></i> Continue Shopping
+        </a>
+      </div>
+
+      <div class="summary-col" id="summaryCol">
+        <div class="order-summary">
+          <h2 class="summary-title">Order Summary</h2>
+          <div class="summary-rows">
+            <div class="summary-row"><span>Subtotal</span><span id="subtotalVal">$0.00</span></div>
+            <div class="summary-row"><span>Delivery Fee</span><span id="deliveryVal">$3.99</span></div>
+            <div class="summary-row discount-row" id="discountRow" style="display:none;">
+              <span>Discount</span><span id="discountVal" class="discount-green">-$0.00</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-row summary-total"><span>Total</span><span id="totalVal" class="total-orange">$0.00</span></div>
+          </div>
+          <div class="promo-wrap">
+            <input type="text" id="promoInput" class="promo-input" placeholder="Promo code" autocomplete="off" />
+            <button class="promo-apply-btn" id="promoApplyBtn">Apply</button>
+          </div>
+          <p class="promo-msg" id="promoMsg"></p>
+          <button class="btn-checkout" id="checkoutBtn">Checkout <i class="fa-solid fa-arrow-right"></i></button>
+          <div class="trust-badges">
+            <div class="trust-badge"><i class="fa-solid fa-lock"></i><span>Secure checkout</span></div>
+            <div class="trust-badge"><i class="fa-solid fa-rotate-left"></i><span>Easy returns</span></div>
+            <div class="trust-badge"><i class="fa-solid fa-bolt"></i><span>Fast delivery</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-light">
+          <div class="logo-icon">F</div>
+          <span class="logo-text">Fresh<span class="logo-accent">Feast</span></span>
+        </a>
+        <p class="footer-tagline">Fresh, delicious meals delivered to your door. Made with love, served with care.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="#">Locations</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Support</h4>
+        <ul class="footer-list">
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Delivery Info</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Contact Us</h4>
+        <ul class="footer-list footer-contact">
+          <li><i class="fa-solid fa-phone"></i> (555) 123-4567</li>
+          <li><i class="fa-regular fa-envelope"></i> hello@freshfeast.com</li>
+          <li><i class="fa-solid fa-location-dot"></i> 123 Foodie Street, Flavor Town</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&#169; 2024 FreshFeast. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMsg">Done!</span>
+  </div>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" id="modalBox">
+      <div class="modal-icon"><i class="fa-solid fa-circle-check"></i></div>
+      <h3 class="modal-title">Order Placed!</h3>
+      <p class="modal-sub">Thank you for your order. Your food is being prepared and will arrive in 30-45 minutes.</p>
+      <button class="btn btn-primary modal-ok" id="modalOk">
+        <i class="fa-solid fa-house"></i> Back to Home
+      </button>
+    </div>
+  </div>
+
+  <script src="cart-store.js"></script>
+  <script src="cart.js"></script>
+</body>
+</html>

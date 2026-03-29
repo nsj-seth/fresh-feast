@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreshFeast — Delicious Food, Delivered Fresh</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">F</div>
+        <span class="logo-text">Fresh<span class="logo-accent">Feast</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="menu.html" class="nav-link">Menu</a>
+        <a href="preferences.html" class="nav-link">Preferences</a>
+        <a href="support.html" class="nav-link">Support</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="location.html"><button class="nav-icon-btn"><i class="fa-solid fa-location-dot"></i></button></a>
+        <a href="profile.html"><button class="nav-icon-btn"><i class="fa-regular fa-user"></i></button></a>
+        <a href="cart.html" class="nav-icon-btn cart-btn">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container hero-inner">
+      <div class="hero-content" data-animate="fade-up">
+        <div class="hero-badge"><i class="fa-solid fa-leaf"></i> Fresh &amp; Locally Sourced</div>
+        <h1 class="hero-title">Delicious Food,<br /><span class="hero-accent">Delivered</span> Fresh</h1>
+        <p class="hero-desc">Experience the finest flavors with our carefully crafted dishes. From farm to table, we bring you meals that nourish your body and soul.</p>
+        <div class="hero-btns">
+          <a href="menu.html" class="btn btn-primary">Explore Menu <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-item"><i class="fa-regular fa-clock"></i><span>30 min delivery</span></div>
+          <div class="hero-meta-item"><i class="fa-solid fa-star"></i><span>4.9 rating</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" data-animate="fade-left">
+        <div class="hero-img-wrap">
+          <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=800&q=80" alt="Fresh food spread" class="hero-img" />
+          <div class="hero-img-badge">
+            <div class="badge-icon"><i class="fa-solid fa-check"></i></div>
+            <div class="badge-info"><strong>100% Fresh</strong><span>Local ingredients</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+  </section>
+
+  <section class="favorites" id="menu">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <h2 class="section-title">Our <span class="accent">Favorites</span></h2>
+        <p class="section-sub">Discover our most loved dishes, crafted with passion and the finest ingredients</p>
+      </div>
+      <div class="cards-grid" id="foodGrid">
+
+        <div class="food-card" data-animate="fade-up" data-delay="0">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&q=80" alt="Classic Smash Burger" class="card-img" />
+          </div>
+          <div class="card-body">
+            <div class="card-top"><h3 class="card-name">Classic Smash Burger</h3><div class="card-rating"><i class="fa-solid fa-star"></i> 4.9</div></div>
+            <p class="card-desc">Double patty with melted cheddar, fresh lettuce, and our secret sauce</p>
+            <div class="card-footer">
+              <span class="card-price">$14.99</span>
+              <button class="btn-add-cart" data-id="1" data-name="Classic Smash Burger" data-price="14.99" data-img="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&q=80">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card" data-animate="fade-up" data-delay="100">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=500&q=80" alt="Grilled Atlantic Salmon" class="card-img" />
+          </div>
+          <div class="card-body">
+            <div class="card-top"><h3 class="card-name">Grilled Atlantic Salmon</h3><div class="card-rating"><i class="fa-solid fa-star"></i> 4.8</div></div>
+            <p class="card-desc">Fresh salmon with herb butter, served with seasonal vegetables</p>
+            <div class="card-footer">
+              <span class="card-price">$22.99</span>
+              <button class="btn-add-cart" data-id="2" data-name="Grilled Atlantic Salmon" data-price="22.99" data-img="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=500&q=80">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card" data-animate="fade-up" data-delay="200">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&q=80" alt="Garden Fresh Bowl" class="card-img" />
+            <span class="card-tag">Vegetarian</span>
+          </div>
+          <div class="card-body">
+            <div class="card-top"><h3 class="card-name">Garden Fresh Bowl</h3><div class="card-rating"><i class="fa-solid fa-star"></i> 4.7</div></div>
+            <p class="card-desc">Mixed greens, cherry tomatoes, avocado, and citrus vinaigrette</p>
+            <div class="card-footer">
+              <span class="card-price">$12.99</span>
+              <button class="btn-add-cart" data-id="3" data-name="Garden Fresh Bowl" data-price="12.99" data-img="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&q=80">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card" data-animate="fade-up" data-delay="300">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=80" alt="Truffle Carbonara" class="card-img" />
+          </div>
+          <div class="card-body">
+            <div class="card-top"><h3 class="card-name">Truffle Carbonara</h3><div class="card-rating"><i class="fa-solid fa-star"></i> 4.9</div></div>
+            <p class="card-desc">Creamy pasta with pancetta, parmesan, and black truffle</p>
+            <div class="card-footer">
+              <span class="card-price">$18.99</span>
+              <button class="btn-add-cart" data-id="4" data-name="Truffle Carbonara" data-price="18.99" data-img="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=80">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="view-menu-wrap" data-animate="fade-up">
+        <a href="menu.html" class="btn btn-outline-lg">View Full Menu <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <h2 class="section-title">How It <span class="accent">Works</span></h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card" data-animate="fade-up" data-delay="0">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Browse Menu</h3>
+          <p class="step-desc">Explore our diverse selection of dishes</p>
+        </div>
+        <div class="step-card" data-animate="fade-up" data-delay="150">
+          <div class="step-number">02</div>
+          <h3 class="step-title">Place Order</h3>
+          <p class="step-desc">Customize and add items to your cart</p>
+        </div>
+        <div class="step-card" data-animate="fade-up" data-delay="300">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Enjoy!</h3>
+          <p class="step-desc">Fast delivery right to your doorstep</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="support">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-light">
+          <div class="logo-icon">F</div>
+          <span class="logo-text">Fresh<span class="logo-accent">Feast</span></span>
+        </a>
+        <p class="footer-tagline">Fresh, delicious meals delivered to your door. Made with love, served with care.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="#">Locations</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Support</h4>
+        <ul class="footer-list">
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Delivery Info</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Contact Us</h4>
+        <ul class="footer-list footer-contact">
+          <li><i class="fa-solid fa-phone"></i> (555) 123-4567</li>
+          <li><i class="fa-regular fa-envelope"></i> hello@freshfeast.com</li>
+          <li><i class="fa-solid fa-location-dot"></i> 123 Foodie Street, Flavor Town, FT 12345</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&#169; 2024 FreshFeast. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span id="toastMsg">Item added to cart!</span>
+  </div>
+
+  <script src="cart-store.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
